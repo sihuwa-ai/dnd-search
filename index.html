@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5e Wikidot Search</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: #1e1e1e;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin: 16px 0;
+      box-sizing: border-box;
+      border: 1px solid #333;
+      border-radius: 6px;
+      font-size: 16px;
+      background: #2a2a2a;
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #c53030;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>D&D 5e Wikidot Search</h2>
+    <form onsubmit="runSearch(event)">
+      <input type="text" id="query" placeholder="Spell, monster, class..." autofocus required>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <script>
+    function runSearch(event) {
+      event.preventDefault();
+      const query = document.getElementById('query').value.trim();
+      if (query) {
+        const targetUrl = `https://www.google.com/search?q=site:dnd5e.wikidot.com+${encodeURIComponent(query)}`;
+        window.location.href = targetUrl;
+      }
+    }
+  </script>
+
+</body>
+</html>
